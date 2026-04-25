@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results Management</title>
+    <meta name="description" content="Enter and manage student grades" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23035772'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='38' font-weight='bold'>SGM</text></svg>"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="result.css" />
+    <link rel="stylesheet" href="footer.css?v=5" />
+  </head>
+  <body>
+    <header class="header-container" id="home">
+      <a href="student.html" class="header-brand">
+        <div class="text-logo">SG<span>M</span></div>
+        <div class="logo-sub">Students Management System</div>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-bar">
+          <li class="nav-item"><a href="student.html">Student</a></li>
+          <li class="nav-item"><a href="subject.html">Subject</a></li>
+          <li class="nav-item"><a href="result.html" aria-current="page">Result</a></li>
+          <li class="nav-item"><a href="search.html">Search</a></li>
+          <li class="nav-item"><a href="ranking.html">Ranking</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-wrap">
+      <main class="page" role="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Results Management</h1>
+            <p class="page-subtitle">Enter and manage student grades</p>
+          </div>
+        </header>
+
+        <section class="list-card" aria-label="Results list">
+          <div class="list-top">
+            <div class="list-heading">
+              <h2 class="list-title">Results List</h2>
+              <p class="list-subtitle" id="results-count">0 result(s) recorded</p>
+            </div>
+
+            <button id="new-result-btn" class="btn btn-primary" type="button">
+              <span class="btn-plus" aria-hidden="true">+</span>
+              New Result
+            </button>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="Results table">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th scope="col">Student Code</th>
+                  <th scope="col">Student Name</th>
+                  <th scope="col">Subject Code</th>
+                  <th scope="col">Subject Name</th>
+                  <th scope="col">Grade</th>
+                  <th scope="col" class="th-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="results-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="result-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-backdrop" data-close="true" tabindex="-1" aria-hidden="true"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-title">Result</h3>
+          <button class="icon-btn" id="modal-close" type="button" aria-label="Close modal">✕</button>
+        </div>
+
+        <form id="result-form" class="modal-body">
+          <input type="hidden" id="form-mode" value="create" />
+          <input type="hidden" id="form-id" value="" />
+
+          <div class="form-grid">
+            <label class="field">
+              <span class="field-label">Student Code</span>
+              <input class="field-input" id="field-student-code" type="text" required maxlength="10" />
+              <span class="field-help">Example: E001</span>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Student Name</span>
+              <input class="field-input" id="field-student-name" type="text" required maxlength="80" />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Subject Code</span>
+              <input class="field-input" id="field-subject-code" type="text" required maxlength="10" />
+              <span class="field-help">Example: M001</span>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Subject Name</span>
+              <input class="field-input" id="field-subject-name" type="text" required maxlength="80" />
+            </label>
+
+            <label class="field" style="grid-column: 1 / -1;">
+              <span class="field-label">Grade (/20)</span>
+              <input class="field-input" id="field-grade" type="number" min="0" max="20" step="0.01" required />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <div class="form-note" id="form-note" role="status" aria-live="polite"></div>
+            <div class="form-actions-right">
+              <button class="btn btn-ghost" id="cancel-btn" type="button">Cancel</button>
+              <button class="btn btn-primary" id="save-btn" type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 SGM | All rights reserved | Students Grades Management System</p>
+      <a href="#home" class="up-button" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#fff" />
+          <path
+            stroke="#035772"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 16V9M9 12l3-3 3 3"
+          />
+        </svg>
+      </a>
+    </footer>
+
+    <script src="result.js" defer></script>
+  </body>
+</html>
+

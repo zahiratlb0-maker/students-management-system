@@ -1,0 +1,256 @@
+:root {
+  --primary: #035772;
+  --secondary: #a5c8d4;
+  --teal: #0f606b;
+  --bg: #f6f9f5;
+  --accent: #abb56e;
+  --text: #0b1f24;
+  --muted: rgba(11, 31, 36, 0.68);
+  --card: rgba(255, 255, 255, 0.75);
+  --shadow: 0 14px 40px rgba(3, 87, 114, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 10% 0%, rgba(165, 200, 212, 0.45), rgba(246, 249, 245, 1) 45%),
+    radial-gradient(circle at 90% 10%, rgba(171, 181, 110, 0.22), rgba(246, 249, 245, 1) 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+.page-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 28px 14px 44px;
+}
+
+.page {
+  width: 100%;
+  max-width: 980px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.page-subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.stats {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid rgba(3, 87, 114, 0.12);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(165, 200, 212, 0.36);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stat-value {
+  font-size: 30px;
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.stat-value--warn {
+  color: #a13f30;
+}
+
+.panel {
+  margin-top: 14px;
+  background: var(--card);
+  border: 1px solid rgba(3, 87, 114, 0.12);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+
+.panel-title {
+  color: var(--primary);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.panel-sub {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.filters {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(3, 87, 114, 0.88);
+}
+
+.field-input {
+  border-radius: 12px;
+  border: 1px solid rgba(3, 87, 114, 0.18);
+  background: #fff;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.table-wrap {
+  margin-top: 12px;
+  overflow: auto;
+  border-radius: 12px;
+}
+
+.ranking-table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.ranking-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: rgba(3, 87, 114, 0.85);
+  background: rgba(165, 200, 212, 0.18);
+  border-bottom: 1px solid rgba(3, 87, 114, 0.14);
+}
+
+.ranking-table tbody td {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(3, 87, 114, 0.09);
+}
+
+.ranking-table tbody tr:hover td {
+  background: rgba(165, 200, 212, 0.12);
+}
+
+.avg {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 900;
+  background: rgba(165, 200, 212, 0.4);
+  color: var(--primary);
+}
+
+.badge--high {
+  background: rgba(171, 181, 110, 0.35);
+  color: #3b4a1b;
+}
+
+.podium {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.podium-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(3, 87, 114, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.podium-place {
+  font-size: 32px;
+}
+
+.podium-rank {
+  margin-top: 4px;
+  font-weight: 900;
+  color: var(--primary);
+  font-size: 17px;
+}
+
+.podium-name {
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.podium-avg {
+  margin-top: 2px;
+  font-size: 32px;
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.podium-sub {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .podium {
+    grid-template-columns: 1fr;
+  }
+  .filters {
+    grid-template-columns: 1fr;
+  }
+}
+

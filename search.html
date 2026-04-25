@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+    <meta name="description" content="Search for students, subjects and view results" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23035772'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='38' font-weight='bold'>SGM</text></svg>"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="search.css" />
+    <link rel="stylesheet" href="footer.css?v=5" />
+  </head>
+  <body>
+    <header class="header-container" id="home">
+      <a href="student.html" class="header-brand">
+        <div class="text-logo">SG<span>M</span></div>
+        <div class="logo-sub">Students Management System</div>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-bar">
+          <li class="nav-item"><a href="student.html">Student</a></li>
+          <li class="nav-item"><a href="subject.html">Subject</a></li>
+          <li class="nav-item"><a href="result.html">Result</a></li>
+          <li class="nav-item"><a href="search.html" aria-current="page">Search</a></li>
+          <li class="nav-item"><a href="ranking.html">Ranking</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-wrap">
+      <main class="page" role="main">
+        <header class="page-header">
+          <h1 class="page-title">Search</h1>
+          <p class="page-subtitle">Search for students, subjects and view results</p>
+        </header>
+
+        <section class="tabs-shell" aria-label="Search type">
+          <div class="tabs" role="tablist">
+            <button class="tab is-active" id="tab-students" type="button" role="tab" aria-selected="true" data-type="students">
+              Students
+            </button>
+            <button class="tab" id="tab-subjects" type="button" role="tab" aria-selected="false" data-type="subjects">
+              Subjects
+            </button>
+            <button class="tab" id="tab-results" type="button" role="tab" aria-selected="false" data-type="results">
+              Results
+            </button>
+          </div>
+        </section>
+
+        <section class="search-card">
+          <div class="search-head">
+            <h2 class="search-title" id="search-title">Search for a Student</h2>
+            <p class="search-help" id="search-help">Search by code, last name, first name or major...</p>
+          </div>
+
+          <form id="search-form" class="search-form">
+            <input
+              id="search-input"
+              class="search-input"
+              type="text"
+              placeholder="Enter code, last name, first name or major..."
+              autocomplete="off"
+            />
+            <button class="search-btn" id="search-btn" type="submit" aria-label="Search">
+              🔍
+            </button>
+          </form>
+
+          <p class="results-count" id="results-count" aria-live="polite"></p>
+
+          <div class="results-wrap" id="results-wrap"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 SGM | All rights reserved | Students Grades Management System</p>
+      <a href="#home" class="up-button" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#fff" />
+          <path
+            stroke="#035772"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 16V9M9 12l3-3 3 3"
+          />
+        </svg>
+      </a>
+    </footer>
+
+    <script src="search.js" defer></script>
+  </body>
+</html>
+

@@ -1,0 +1,101 @@
+/* ========= NAVBAR (shared) ========= */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 20px rgba(3, 87, 114, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #a5c8d4;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.header-brand {
+  text-decoration: none;
+  color: inherit;
+}
+
+.text-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #035772;
+  letter-spacing: -0.5px;
+}
+
+.text-logo span {
+  color: #0f606b;
+  font-weight: 700;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  color: #0f606b;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #035772;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+.nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: #0f606b;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+}
+
+.nav-item a:hover {
+  color: #0f606b;
+}
+
+.nav-item a:hover::after {
+  width: 100%;
+}
+
+.nav-item a[aria-current="page"] {
+  color: #0f606b;
+}
+
+.nav-item a[aria-current="page"]::after {
+  width: 100%;
+  background: #abb56e;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .nav-bar {
+    justify-content: center;
+    gap: 1rem;
+  }
+}

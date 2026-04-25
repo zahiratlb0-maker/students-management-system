@@ -1,0 +1,64 @@
+/* ========= FOOTER ========= */
+#home {
+  scroll-margin-top: 80px;
+}
+
+.footer {
+  background: #035772;
+  color: #fff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* الزر الخارجي تيل؛ الدائرة البيضاء الصغيرة داخل SVG فقط */
+.up-button {
+  background: #0f606b;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.up-button:hover {
+  background: #a5c8d4;
+  transform: translateY(-3px);
+}
+
+.up-button svg {
+  width: 30px;
+  height: 30px;
+  max-width: none;
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

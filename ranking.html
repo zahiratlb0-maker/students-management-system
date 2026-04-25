@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Rankings</title>
+    <meta name="description" content="Rankings by overall average" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23035772'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='38' font-weight='bold'>SGM</text></svg>"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="ranking.css" />
+    <link rel="stylesheet" href="footer.css?v=5" />
+  </head>
+  <body>
+    <header class="header-container" id="home">
+      <a href="student.html" class="header-brand">
+        <div class="text-logo">SG<span>M</span></div>
+        <div class="logo-sub">Students Management System</div>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-bar">
+          <li class="nav-item"><a href="student.html">Student</a></li>
+          <li class="nav-item"><a href="subject.html">Subject</a></li>
+          <li class="nav-item"><a href="result.html">Result</a></li>
+          <li class="nav-item"><a href="search.html">Search</a></li>
+          <li class="nav-item"><a href="ranking.html" aria-current="page">Ranking</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-wrap">
+      <main class="page" role="main">
+        <header class="page-header">
+          <h1 class="page-title">Student Rankings</h1>
+          <p class="page-subtitle">Rankings by overall average</p>
+        </header>
+
+        <section class="stats" aria-label="Ranking stats">
+          <article class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div>
+              <p class="stat-label">Total Students</p>
+              <p class="stat-value" id="stat-total">0</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon">📈</div>
+            <div>
+              <p class="stat-label">Overall Average</p>
+              <p class="stat-value" id="stat-average">0.00</p>
+            </div>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-icon">✅</div>
+            <div>
+              <p class="stat-label">Passed (≥ 10)</p>
+              <p class="stat-value" id="stat-passed">0</p>
+            </div>
+          </article>
+
+          <article class="stat-card stat-card--warn">
+            <div class="stat-icon">⚠️</div>
+            <div>
+              <p class="stat-label">Failed (&lt; 10)</p>
+              <p class="stat-value stat-value--warn" id="stat-failed">0</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2 class="panel-title">Filters</h2>
+            <p class="panel-sub">Filter rankings by year and major</p>
+          </div>
+
+          <div class="filters">
+            <label class="field">
+              <span class="field-label">Major</span>
+              <select id="filter-major" class="field-input"></select>
+            </label>
+            <label class="field">
+              <span class="field-label">Year</span>
+              <select id="filter-year" class="field-input"></select>
+            </label>
+          </div>
+
+          <div class="table-wrap">
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Code</th>
+                  <th>Last Name</th>
+                  <th>First Name</th>
+                  <th>Year</th>
+                  <th>Major</th>
+                  <th>Average</th>
+                  <th>Honors</th>
+                </tr>
+              </thead>
+              <tbody id="ranking-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="podium" id="podium"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 SGM | All rights reserved | Students Grades Management System</p>
+      <a href="#home" class="up-button" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#fff" />
+          <path
+            stroke="#035772"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 16V9M9 12l3-3 3 3"
+          />
+        </svg>
+      </a>
+    </footer>
+
+    <script src="ranking.js" defer></script>
+  </body>
+</html>
+

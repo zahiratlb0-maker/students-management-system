@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Management</title>
+    <meta name="description" content="Add, edit or delete students" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23035772'/><text x='50' y='65' text-anchor='middle' fill='white' font-size='38' font-weight='bold'>SGM</text></svg>"
+    />
+    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="student.css" />
+    <link rel="stylesheet" href="footer.css?v=5" />
+  </head>
+  <body>
+    <header class="header-container" id="home">
+      <a href="student.html" class="header-brand">
+        <div class="text-logo">SG<span>M</span></div>
+        <div class="logo-sub">Students Management System</div>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav-bar">
+          <li class="nav-item"><a href="student.html" aria-current="page">Student</a></li>
+          <li class="nav-item"><a href="subject.html">Subject</a></li>
+          <li class="nav-item"><a href="result.html">Result</a></li>
+          <li class="nav-item"><a href="search.html">Search</a></li>
+          <li class="nav-item"><a href="ranking.html">Ranking</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="page-wrap">
+      <main class="page" role="main">
+        <header class="page-header">
+          <div>
+            <h1 class="page-title">Student Management</h1>
+            <p class="page-subtitle">Add, edit or delete students</p>
+          </div>
+        </header>
+
+        <section class="stats" aria-label="Student summary">
+          <article class="stat-card" aria-label="Total Students">
+            <div class="stat-icon" aria-hidden="true">👥</div>
+            <div class="stat-content">
+              <div class="stat-label">Total Students</div>
+              <div class="stat-value">
+                <span id="total-students">0</span>
+              </div>
+              <div class="stat-sub">
+                <span class="dot" aria-hidden="true"></span>
+                <span>Enrolled</span>
+                <span class="stat-sub-value" id="enrolled-count">0</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="stat-card" aria-label="Average Global">
+            <div class="stat-icon" aria-hidden="true">📈</div>
+            <div class="stat-content">
+              <div class="stat-label">Average Global</div>
+              <div class="stat-value">
+                <span id="global-average">0.00</span>
+              </div>
+              <div class="stat-sub">
+                <span class="stat-sub-text" id="global-average-date">—</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="stat-card stat-card--best" aria-label="Best Student">
+            <div class="best-badge" aria-hidden="true">
+              <div class="best-badge-rank">1</div>
+            </div>
+            <div class="stat-content stat-content--best">
+              <div class="stat-label">Best Student</div>
+              <div class="best-line">
+                <span class="best-name" id="best-name">—</span>
+              </div>
+              <div class="best-meta">
+                <span class="best-code" id="best-code">—</span>
+                <span class="best-avg-label">Average</span>
+              </div>
+            </div>
+            <div class="stat-best-average">
+              <span id="best-average">0.00</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="list-card" aria-label="Student list">
+          <div class="list-top">
+            <div class="list-heading">
+              <h2 class="list-title">Student List</h2>
+              <p class="list-subtitle">
+                <span id="students-count">0 student(s) enrolled</span>
+              </p>
+            </div>
+
+            <button id="new-student-btn" class="btn btn-primary" type="button">
+              <span class="btn-plus" aria-hidden="true">+</span>
+              New Student
+            </button>
+          </div>
+
+          <div class="table-wrap" role="region" aria-label="Students table">
+            <table class="students-table">
+              <thead>
+                <tr>
+                  <th scope="col">Code</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Birth Date</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Year</th>
+                  <th scope="col">Major</th>
+                  <th scope="col" class="th-right">Average</th>
+                  <th scope="col" class="th-actions">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="students-tbody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal" id="student-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-backdrop" data-close="true" tabindex="-1" aria-hidden="true"></div>
+      <div class="modal-panel">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-title">Student</h3>
+          <button class="icon-btn" id="modal-close" type="button" aria-label="Close modal">
+            ✕
+          </button>
+        </div>
+
+        <form id="student-form" class="modal-body">
+          <input type="hidden" id="form-mode" value="create" />
+          <input type="hidden" id="form-old-code" value="" />
+
+          <div class="form-grid">
+            <label class="field">
+              <span class="field-label">Code</span>
+              <input class="field-input" id="field-code" type="text" required maxlength="10" />
+              <span class="field-help">Example: E001</span>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Last Name</span>
+              <input class="field-input" id="field-last-name" type="text" required maxlength="50" />
+            </label>
+
+            <label class="field">
+              <span class="field-label">First Name</span>
+              <input class="field-input" id="field-first-name" type="text" required maxlength="50" />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Birth Date</span>
+              <input class="field-input" id="field-birth-date" type="date" required />
+            </label>
+
+            <label class="field">
+              <span class="field-label">Gender</span>
+              <select class="field-input" id="field-gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Year</span>
+              <select class="field-input" id="field-year" required>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year" selected>2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Major</span>
+              <select class="field-input" id="field-major" required>
+                <option value="Science">Science</option>
+                <option value="Literary">Literary</option>
+                <option value="Math">Math</option>
+                <option value="Technical Math">Technical Math</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span class="field-label">Average</span>
+              <input class="field-input" id="field-average" type="number" min="0" max="20" step="0.01" required />
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <div class="form-note" id="form-note" role="status" aria-live="polite"></div>
+            <div class="form-actions-right">
+              <button class="btn btn-ghost" id="cancel-btn" type="button">Cancel</button>
+              <button class="btn btn-primary" id="save-btn" type="submit">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>© 2026 SGM | All rights reserved | Students Grades Management System</p>
+      <a href="#home" class="up-button" aria-label="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="#fff" />
+          <path
+            stroke="#035772"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 16V9M9 12l3-3 3 3"
+          />
+        </svg>
+      </a>
+    </footer>
+
+    <script src="student.js" defer></script>
+  </body>
+</html>

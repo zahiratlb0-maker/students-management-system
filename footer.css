@@ -1,4 +1,4 @@
-/* ========= FOOTER ========= */
+/* ========= FOOTER (shared)========= */
 #home {
   scroll-margin-top: 80px;
 }
@@ -20,7 +20,6 @@
   font-size: 0.9rem;
 }
 
-/* الزر الخارجي تيل؛ الدائرة البيضاء الصغيرة داخل SVG فقط */
 .up-button {
   background: #0f606b;
   border: none;
